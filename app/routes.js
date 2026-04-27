@@ -37,8 +37,8 @@ router.post('/super-powers-answer', function (req, res) {
 
   // If either of the urgent symptoms have been checked
   if (
-    SuperPowers.includes('invisibilityCloak') ||
-    SuperPowers.includes('superHumanStength')
+    SuperPowers.includes('people not being able to see me') ||
+    SuperPowers.includes('lifting far beyond my expectations')
   ) {
 
     res.redirect('/details')
@@ -49,8 +49,6 @@ router.post('/super-powers-answer', function (req, res) {
     res.redirect('/ineligible')
   }
 })
-
-
 
 
 
