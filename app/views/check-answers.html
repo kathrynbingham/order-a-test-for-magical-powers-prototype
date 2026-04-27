@@ -1,0 +1,71 @@
+{%extends 'layout.html'%}
+
+{% from "button/macro.njk" import button %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers</h1>
+
+      <h2 class="nhsuk-heading-m">
+        Personal details
+      </h2>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Do you have symptoms?"
+            },
+            value: {
+              text: data.Doyouhavesymptoms
+            },
+            actions: {
+              items: [
+                {
+                  href: "symptoms",
+                  text: "Change",
+                  visuallyHiddenText: "NHS number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Details"
+            },
+            value: {
+              text: "Kevin Francis"
+            },
+            actions: {
+              items: [
+                {
+                  href: "details",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          }
+         ]
+      }) }}
+
+      <h2 class="nhsuk-heading-m">
+        Now send your application
+      </h2>
+
+      <p>
+        Your details will be sent to Rose Medical Practice to begin your registration.
+      </p>
+
+      <form action="/form-handler" method="post" novalidate>
+        {{ button({
+          text: "Confirm and send"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
