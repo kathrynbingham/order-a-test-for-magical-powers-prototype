@@ -1,0 +1,42 @@
+{%extends 'layout.html'%}
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "input/macro.njk" import input %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/symptoms",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/form-handler" method="post" novalidate>
+
+        {{ textarea({
+          name: "example",
+          id: "example",
+          label: {
+            text: "Can you provide more detail about your symptoms?",
+            size: "l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "For example, can you see in the dark?"
+          }
+        }) }}
+
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
