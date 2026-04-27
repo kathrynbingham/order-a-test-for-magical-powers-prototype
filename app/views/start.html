@@ -7,46 +7,30 @@
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 {% set dummyNhsNumber = "999 123 4567" %}
 
-{% block beforeContent %}
-  {{ breadcrumb({
-    items: [
-      {
-        href: "#",
-        text: "Home"
-      },
-      {
-        href: "#",
-        text: "NHS services"
-      },
-      {
-        href: "#",
-        text: "Online services"
-      }
-    ]
-  }) }}
-{% endblock %}
-
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1 class="nhsuk-heading-xl">Ordering a test for checking if you have magical powers</h1>
-      <p>Use this service to get your NHS number.</p>
-      <p>You do not need to know your NHS number to use NHS services, but it can be useful to have it.</p>
-
-      {% set insetTextHtml %}
-        <p>You can also get your NHS number in your <a href="#">NHS account</a>.</p>
-      {% endset %}
-
-      {{ insetText({
-        html: insetTextHtml | safe
-      }) }}
+      <p>Use this service to get check if you have magical powers.</p>
 
       <h2 class="nhsuk-heading-l"> Who can use this service</h2>
-      <p>You can use this service if you live in England.</p>
-      <p>You can also use this service for someone else.</p>
+      <p>Anyone who dares....</p>
 
 
+
+{# warning call out #}
+{% from "warning-callout/macro.njk" import warningCallout %}
+
+{{ warningCallout({
+  heading: "Tests may be limited",
+  text: "The magical powers people are very busy, please allow up to 5 weeks for your test."
+}) }}
+{# end warning #}
+
+      <h2 class="nhsuk-heading-l">Before you start</h2>
+
+      
 {# Expander starts here#}
     {% from "details/macro.njk" import details %}
 
@@ -62,41 +46,19 @@
     {% endcall %}
 {# Expander ends here#}
 
-
-{# warning call out #}
-{% from "warning-callout/macro.njk" import warningCallout %}
-
-{{ warningCallout({
-  heading: "Tests may be limited",
-  text: "The magical powers people are very busy, please allow up to 5 weeks for your test."
-}) }}
-{# end warning #}
-
-      <h2 class="nhsuk-heading-l">Before you start</h2>
-      <p>You will need your:</p>
+      <p>You will need:</p>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>full name</li>
-        <li>date of birth</li>
-        <li>postcode of the address you've registered at a GP surgery with</li>
+        <li>5 minutes of your time</li>
+        <li>To answer honestly....</li>
       </ul>
 
-      <p>You will have your NHS number sent to you by text, email or letter.</p>
-      <p>If you're using this service for someone else, enter their details. They will be sent their NHS number.</p>
+      <p></p>
 
       {{ button({
         text: "Start now",
         href: "symptoms"
       }) }}
 
-      <h2 class="nhsuk-heading-m">Other ways to get your NHS number</h2>
-      <p>If you cannot get your NHS number online you can:</p>
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>find it on any letter from the NHS like a prescription or appointment letter</li>
-        <li>call your GP surgery and ask them for your number</li>
-      </ul>
-
-      <h2 class="nhsuk-heading-m">About using this service</h2>
-      <p>By using this service you are agreeing to our <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</p>
 
     </div>
   </div>
