@@ -1,0 +1,23 @@
+{%extends 'layout.html'%}
+
+{% from "panel/macro.njk" import panel %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ panel({
+        titleText: "Request sent",
+        text: "We have sent you a confirmation email"
+      }) }}
+
+      <p>
+      Your test kit will be delivered by magical post in 4 days.</p>
+    
+      <p> <a href="#">Tell us about your experience using this service</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
