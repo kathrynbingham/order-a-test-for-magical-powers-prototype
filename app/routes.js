@@ -20,7 +20,7 @@ router.post('/symptoms-answer', function (req, res) {
 
   } else if (Doyouhavesymptoms === "I have no idea") {
 
-    res.redirect('/ineligible')
+    res.redirect('/super-powers')
 
   } else {
 
@@ -30,6 +30,48 @@ router.post('/symptoms-answer', function (req, res) {
   }
 })
 
+
+router.post('/super-powers-answer', function (req, res) {
+  const data = req.session.data
+  const SuperPowers = data.SuperPowers || []
+
+  // If either of the urgent symptoms have been checked
+  if (
+    SuperPowers.includes('invisibilityCloak') ||
+    SuperPowers.includes('superHumanStength')
+  ) {
+
+    res.redirect('/details')
+
+  } else {
+
+    // Return to question
+    res.redirect('/ineligible')
+  }
+})
+
+
+
+
+
+router.post('/super-powers-answer', function (req, res) {
+  const data = req.session.data
+  const SuperPowers = data.SuperPowers || []
+
+  if (
+    SuperPowers.includes("people not being able to see me") ||
+    SuperPowers.includes("lifting far beyond my expectations")
+  ) {
+
+    res.redirect('/details')
+
+  } else {
+
+    // No answer selected, return to question
+    res.redirect('/ineligible')
+
+  }
+})
 
 
 

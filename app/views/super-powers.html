@@ -1,0 +1,61 @@
+{%extends 'layout.html'%}
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "radios/macro.njk" import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/start",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+{% from "checkboxes/macro.njk" import checkboxes %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/super-powers-answer" method="post" novalidate>
+
+      {{ checkboxes({
+        name: "SuperPowers",
+        fieldset: {
+          legend: {
+            text: "Have you experienced any of these?",
+            size: "l",
+            isPageHeading: true
+          }
+        },
+        value: data.SuperPowers,
+        hint: {
+          text: "Select all options that are relevant to you"
+        },
+        items: [
+          {
+            value: "invisibilityCloak",
+            text: "people not being able to see me"
+          },
+          {
+            value: "superHumanStength",
+            text: "lifting far beyond my expectations"
+          },
+          {
+            value: "None",
+            text: "None of these"
+          }
+        ]
+      }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
