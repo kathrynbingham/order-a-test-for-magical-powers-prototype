@@ -1,0 +1,41 @@
+{%extends 'layout.html'%}
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "panel/macro.njk" import panel %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "date-of-birth",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% set panelHtml %}
+        <p>Your date of birth is {{ data.dateOfBirth | formatDate}}.</p>
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Sure",
+            classes: "nhsuk-button--reverse",
+            href: "check-answers"
+          }) }}
+          <a href="date-of-birth">Nah</a>
+        </div>
+      {% endset %}
+
+      {{ panel({
+        titleText: "Warning, you cannot change your actual date of birth, have you typed it correctly?",
+        titleSize: "l",
+        classes: "nhsuk-panel--interruption",
+        html: panelHtml
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
