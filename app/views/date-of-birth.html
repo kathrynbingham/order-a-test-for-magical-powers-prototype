@@ -1,0 +1,60 @@
+{%extends 'layout.html'%}
+
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "date-input/macro.njk" import dateInput %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "details",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/check-answers" method="post" novalidate>
+
+        {{ dateInput({
+          namePrefix: "dateOfBirth",
+          fieldset: {
+            legend: {
+              text: "What is your date of birth?",
+              size: "l",
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "For example, 15 3 1984"
+          },
+          items: [
+            {
+              name: "day",
+              value: data.dateOfBirth.day,
+              classes: "nhsuk-input--width-2"
+            },
+            {
+              name: "month",
+              value: data.dateOfBirth.month,
+              classes: "nhsuk-input--width-2"
+            },
+            {
+              name: "year",
+              value: data.dateOfBirth.year,
+              classes: "nhsuk-input--width-4"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

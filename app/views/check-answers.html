@@ -37,12 +37,29 @@
               text: "Details"
             },
             value: {
-              text: data.example
+              text: data.details
             },
             actions: {
               items: [
                 {
                   href: "details",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: data.dateOfBirth | formatDate
+            },
+            actions: {
+              items: [
+                {
+                  href: "date-of-birth",
                   text: "Change",
                   visuallyHiddenText: "name"
                 }

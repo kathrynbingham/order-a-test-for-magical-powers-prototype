@@ -16,17 +16,17 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/check-answers" method="post" novalidate>
+      <form action="/date-of-birth" method="post" novalidate>
 
         {{ textarea({
-          name: "example",
-          id: "example",
+          name: "details",
+          id: "details",
           label: {
             text: "Can you provide more detail about your symptoms?",
             size: "l",
             isPageHeading: true
           },
-          value: data.example,
+          value: data.details,
           hint: {
             text: "For example, can you see in the dark?"
           }
