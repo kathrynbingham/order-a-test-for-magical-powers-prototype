@@ -13,6 +13,18 @@
         Your Magical Details
       </h2>
 
+      {% set superPowersHtml %}
+            {% if data.SuperPowers and data.SuperPowers | length %}
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                {% for power in data.SuperPowers %}
+                  <li>{{ power }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No magical powers revealed.</p>
+            {% endif %}
+          {% endset %}
+
       {{ summaryList({
         rows: [
           {
@@ -66,12 +78,12 @@
               ]
             }
           },
-         {
+          {
             key: {
               text: "Magical Powers Detected"
             },
             value: {
-              text: (data.SuperPowers or []) | join(', ') or 'N/A'
+              html: superPowersHtml
             },
             actions: {
               items: [
