@@ -7,17 +7,17 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">Check your answers</h1>
+      <h1 class="nhsuk-heading-l">Review Your Wizarding Profile ✨</h1>
 
       <h2 class="nhsuk-heading-m">
-        Personal details
+        Your Magical Details
       </h2>
 
       {{ summaryList({
         rows: [
           {
             key: {
-              text: "Do you have symptoms?"
+              text: "Signs of magical awakening?"
             },
             value: {
               text: data.Doyouhavesymptoms
@@ -34,7 +34,7 @@
           },
           {
             key: {
-              text: "Details"
+              text: "Your Magical Story"
             },
             value: {
               text: data.details
@@ -51,7 +51,7 @@
           },
           {
             key: {
-              text: "Date of birth"
+              text: "Your Birth Date (For Astrological Wizarding Compatibility)"
             },
             value: {
               text: data.dateOfBirth | formatDate
@@ -68,7 +68,7 @@
           },
          {
             key: {
-              text: "Additional super powers"
+              text: "Magical Powers Detected"
             },
             value: {
               text: (data.SuperPowers or []) | join(', ') or 'N/A'
@@ -89,12 +89,10 @@
       }) }}
 
       <h2 class="nhsuk-heading-m">
-        Now send your application
+        Ready to Join the Wizarding Community? 🧙‍♂️
       </h2>
 
-      <p>
-        Your details will be sent to Rose Medical Practice to begin your registration.
-      </p>
+      <p>Your application will be reviewed by our Magical Council (and they promise to keep your secrets). Once approved, we'll schedule your official testing ceremony!</p>
 
       <form action="/confirmation" method="post" novalidate>
         {{ button({

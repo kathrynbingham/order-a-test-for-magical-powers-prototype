@@ -18,19 +18,19 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       {% set panelHtml %}
-        <p>Your date of birth is {{ data.dateOfBirth | formatDate}}.</p>
+        <p>According to our records, you were born on <strong>{{ data.dateOfBirth | formatDate}}</strong>. That's a wizard-worthy birth date if we've ever seen one! (Or you might have jumped a few centuries—happens.)</p>
         <div class="nhsuk-button-group">
           {{ button({
-            text: "Sure",
+            text: "Yep, that's me!",
             classes: "nhsuk-button--reverse",
             href: "check-answers"
           }) }}
-          <a href="date-of-birth">Nah</a>
+          <a href="date-of-birth">Oops, let me fix that</a>
         </div>
       {% endset %}
 
       {{ panel({
-        titleText: "Warning, you cannot change your actual date of birth, have you typed it correctly?",
+        titleText: "⚠️ Critical Wizarding Alert: Age Verification",
         titleSize: "l",
         classes: "nhsuk-panel--interruption",
         html: panelHtml

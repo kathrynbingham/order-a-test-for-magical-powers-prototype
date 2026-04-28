@@ -35,37 +35,19 @@ router.post('/super-powers-answer', function (req, res) {
   const data = req.session.data
   const SuperPowers = data.SuperPowers || []
 
-  // If either of the urgent symptoms have been checked
-  if (
-    SuperPowers.includes('people not being able to see me') ||
-    SuperPowers.includes('lifting far beyond my expectations')
-  ) {
-
-    res.redirect('/details')
-
-  } else {
-
-    // Return to question
-    res.redirect('/ineligible')
-  }
-})
-
-
-
-router.post('/super-powers-answer', function (req, res) {
-  const data = req.session.data
-  const SuperPowers = data.SuperPowers || []
-
+  // If any magical powers have been detected
   if (
     SuperPowers.includes("people not being able to see me") ||
-    SuperPowers.includes("lifting far beyond my expectations")
+    SuperPowers.includes("lifting far beyond my expectations") ||
+    SuperPowers.includes('talking to animals') ||
+    SuperPowers.includes("moving things with my mind")
   ) {
 
     res.redirect('/details')
 
   } else {
 
-    // No answer selected, return to question
+    // No magical powers detected, ineligible for testing
     res.redirect('/ineligible')
 
   }

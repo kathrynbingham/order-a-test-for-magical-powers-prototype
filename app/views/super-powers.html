@@ -26,27 +26,44 @@
         name: "SuperPowers",
         fieldset: {
           legend: {
-            text: "Have you experienced any of these?",
+            text: "Which of these wizarding wonders have you experienced? 🪄✨",
             size: "l",
             isPageHeading: true
           }
         },
         values: data.SuperPowers,
         hint: {
-          text: "Select all options that are relevant to you"
+          text: "Select all that apply (no judgment here—we've seen weirder things at the Ministry)"
         },
         items: [
           {
             value: "people not being able to see me",
-            text: "people not being able to see me"
+            text: "I've vanished from sight (either invisibility or social anxiety—hard to tell)",
+            exclusiveGroup: "SuperPowers"
           },
           {
             value: "lifting far beyond my expectations",
-            text: "lifting far beyond my expectations"
+            text: "I've lifted something impossibly heavy (or my confidence is just that strong)",
+            exclusiveGroup: "SuperPowers"
+          },
+          {
+            value: "talking to animals",
+            text: "Animals understand me better than humans",
+            exclusiveGroup: "SuperPowers"
+          },
+          {
+            value: "moving things with my mind",
+            text: "I've made objects move through pure willpower (the remote doesn't count)",
+            exclusiveGroup: "SuperPowers"
+          },
+          {
+            divider: "or"
           },
           {
             value: "None",
-            text: "None of these"
+            text: "None of these (but I can make an excellent cup of tea)",
+            exclusive: true,
+            exclusiveGroup: "SuperPowers"
           }
         ]
       }) }}
