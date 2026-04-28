@@ -1,62 +1,66 @@
-<!-- Use this page as the index for your project -->
+{%extends 'layout.html'%}
 
-<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% from "breadcrumb/macro.njk" import breadcrumb %}
+{% from "button/macro.njk" import button %}
+{% from 'inset-text/macro.njk' import insetText %}
 
-<!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout.html' %}
-<!--
-  In /app/views/layout.html you can:
-    - change the header and footer
-    - add custom CSS and JavaScript
--->
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set dummyNhsNumber = "999 123 4567" %}
 
-<!--
-  Use this to set the page name which will appear at the
-  start of the <title> tag, followed by the service name.
-  This is often not needed on the homepage, where only the
-  service name is needed. You can also reuse this variable
-  within the <h1>, where they are the same.
--->
-{% set pageName = "" %}
-
-<!-- For adding a breadcrumb or back link -->
-<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
-{% block beforeContent %}
-{% endblock %}
-
-<!-- For adding page content -->
-<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <!-- Add your content here -->
-      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+      <h1 class="nhsuk-heading-xl">Discover Your Hidden Wizardry! ✨</h1>
+      <p>Welcome to the Magical Ministry's Official Wizard Detection Service. Use this enchanted form to reveal whether you possess legitimate magical powers or if you've just been really lucky with coin flips.</p>
 
-      <h1 class="nhsuk-heading-xl">
-        {{ serviceName }}
-      </h1>
+      <h2 class="nhsuk-heading-l">Who can use this service</h2>
+      <p>Anyone with a suspicion they're secretly a wizard (or just feeling mysteriously lucky lately)!</p>
 
-      <p>Set the service name for your prototype by editing <strong>/app/config.js</strong>.</p>
 
-      <p>
-        This is the index page for your prototype. You can find it at <strong>/app/views/index.html</strong>.
-      </p>
 
-      <hr>
+{# warning call out #}
+{% from "warning-callout/macro.njk" import warningCallout %}
 
-      <h2 class="nhsuk-heading-l">
-        Get started
-      </h2>
+{{ warningCallout({
+  heading: "⚠️ Important: Our Wizards Are Busy Casting Spells",
+  text: "Given the current shortage of experienced spell-checkers, please allow up to 5 weeks for your test results. Do not owl us repeatedly—it makes them grumpy."
+}) }}
+{# end warning #}
 
-      <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>
-          <a href="https://prototype-kit.service-manual.nhs.uk/how-tos">NHS prototype kit guides</a> – including a tutorial
-        </li>
-        <li>
-          <a href="https://service-manual.nhs.uk/design-system">NHS digital service manual</a> – for code snippets and guidance on using NHS styles, components and patterns
-        </li>
+      <h2 class="nhsuk-heading-l">Before you start</h2>
+
+      
+{# Expander starts here#}
+    {% from "details/macro.njk" import details %}
+
+    {% call details({
+      summaryText: "Not sure if this is the right test for you? 🤔",
+      classes: "nhsuk-expander"
+    }) %}
+      <p>We also offer screening for:</p>
+      <ul>
+        <li>Potions Brewing Aptitude (includes tolerance testing for dragon scale scales)</li>
+        <li>Broomstick Flying Reflexes (vertigo assessment)</li>
+        <li>Wand Compatibility (are you a true chosen one?)</li>
       </ul>
+    {% endcall %}
+{# Expander ends here#}
+
+      <p>To proceed with this test, you'll need:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>5 minutes of your time (or 3 hours after you start reading the terms & conditions—they're quite lengthy)</li>
+        <li>Complete honesty (lying automatically results in a "Squib" classification)</li>
+        <li>A magical device to answer this form (which you're already using, good sign!)</li>
+      </ul>
+
+      <p></p>
+
+      {{ button({
+        text: "Start now",
+        href: "symptoms"
+      }) }}
+
 
     </div>
   </div>
